@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React with CDN</title>
+</head>
+<body>
+    
+    <!-- This is where our React app will be rendered -->
+    <div id="root"></div>
+
+    <!-- React and ReactDOM via CDN -->
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+    <!-- Our custom React code -->
+    <script>
+        // Creating a React element for the H1 tag
+        const h1Element = React.createElement(
+            'h1',
+            null,
+            'Welcome to My React App'
+        );
+
+        // Creating a React element for the first div with a p tag
+        const firstDivElement = React.createElement(
+            'div',
+            { className: 'first-div' },
+            React.createElement(
+                'p',
+                null,
+                '"This is the first paragraph inside the first div" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dolorem sequi a atque similique, molestiae ad, soluta ipsam quam at saepe voluptates quos facilis aspernatur repellendus odit molestias voluptate mollitia harum rem quaerat inventore recusandae adipisci sunt.'
+            )
+        );
+
+        // Creating a React element for the second div with a p tag and an anchor tag
+        const secondDivElement = React.createElement(
+            'div',
+            { className: 'second-div' },
+            React.createElement(
+                'p',
+                null,
+                '"This is the second paragraph inside the second div" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque molestias voluptate mollitia harum rem quaerat inventore recusandae adipisci sunt.'
+            ),
+            React.createElement(
+                'a',
+                { href: 'https://developer.mozilla.org/en-US/', target: '_blank' },
+                'Visit MDN'
+            )
+        );
+
+        // Creating a React element for the last div with a p tag
+        const lastDivElement = React.createElement(
+            'div',
+            { className: 'last-div' },
+            React.createElement(
+                'p',
+                null,
+                '"This is the last paragraph inside the last div" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque dolorem sequi a atque similique, molestiae ad, soluta ipsam quam at saepe voluptates quos facilis aspernatur repellendus odit explicabo. Consectetur dolore maiores repellendus accusantium aperiam ducimus, expedita consequatur aut, necessitatibus sed molestias voluptate mollitia harum rem quaerat inventore recusandae adipisci sunt.'
+            )
+        );
+
+        // Combining all the elements into a parent container
+        const appElement = React.createElement(
+            'div',
+            { className: 'app-container' },
+            h1Element,
+            firstDivElement,
+            secondDivElement,
+            lastDivElement
+        );
+
+        // Rendering the combined element into the root div
+        ReactDOM.render(
+            appElement,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>
